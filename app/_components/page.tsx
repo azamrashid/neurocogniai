@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 
 export default function MainPage() {
@@ -83,7 +82,7 @@ export default function MainPage() {
               <div className="flex justify-between items-center">
                 <div className='font-serif'>
                   <p>Current Activity: Normal</p>
-                  <p>Diagnosis: Alzheimer's</p>
+                  <p>Diagnosis: Alzheimer&apos;s</p>
                   <p>Accuracy: 95%</p>
                   <p>Sensitivity: 84%</p>
                 </div>
@@ -99,14 +98,14 @@ export default function MainPage() {
                   Decreased functional connectivity between the default mode network (DMN) and the hippocampus.
                 </li>
                 <li>
-                  Amyloid Beta Deposition: Amyloid PET scan showed evidence of amyloid beta deposition in brain regions consistent with Alzheimer's Disease.
+                  Amyloid Beta Deposition: Amyloid PET scan showed evidence of amyloid beta deposition in brain regions consistent with Alzheimer&apos;s Disease.
                 </li>
               </ul>
               <p className="mt-4">
-                Interpretation: The fMRI findings suggest abnormalities in brain regions commonly implicated in Alzheimer's disease. The decreased functional connectivity between the DMN and hippocampus is a well-established biomarker for AD.
+                Interpretation: The fMRI findings suggest abnormalities in brain regions commonly implicated in Alzheimer&apos;s disease. The decreased functional connectivity between the DMN and hippocampus is a well-established biomarker for AD.
               </p>
               <p className="mt-4">
-                Diagnosis: Based on the fMRI results and other clinical assessments, Petri Hiljainen may be at increased risk for Alzheimer's Disease. Further evaluation, including neuropsychological testing and cognitive assessments, is recommended to confirm the diagnosis.
+                Diagnosis: Based on the fMRI results and other clinical assessments, Petri Hiljainen may be at increased risk for Alzheimer&apos;s Disease. Further evaluation, including neuropsychological testing and cognitive assessments, is recommended to confirm the diagnosis.
               </p>
             </div>
           </div>
