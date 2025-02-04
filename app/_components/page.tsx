@@ -3,14 +3,10 @@ import Image from 'next/image';
 import Link from "next/link";
 import React, { useState } from "react";
 import axios from "axios";
-import DonutChart from "../donutchart/page";
 import DonutVisitorsChart from "./charts/donnut-visitors";
 import DonutAccuracyChart from "./charts/donnut-accuracy";
 import LineVisitorsChart from "./charts/line-visitors";
 import RadarModelChart from "./charts/radar-model";
-
-import LineChart from "../linechart/page";
-import RadarChart from "../radarchart/page";
 import { UserButton } from "@clerk/clerk-react";
 
 
@@ -22,7 +18,7 @@ export default function MainPage() {
   const [prediction, setPrediction] = useState<string | null>(null);
   const [confidence, setConfidence] = useState<number | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+  //const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 

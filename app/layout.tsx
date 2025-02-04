@@ -4,11 +4,9 @@ import "./globals.css";
 import {
   ClerkProvider,
   SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs';
-import { dark, neobrutalism, shadesOfPurple  } from '@clerk/themes';
+  SignedOut
+  } from '@clerk/nextjs';
+import { neobrutalism,  } from '@clerk/themes';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
