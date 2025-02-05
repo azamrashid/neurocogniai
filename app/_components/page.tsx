@@ -23,8 +23,8 @@ export default function MainPage() {
   const [error, setError] = useState<string | null>(null);
 
   const [patientID, setPatientID] = useState<string>("");
-  const [patientInfo, setPatientInfo] = useState<any>(null);
-  const [doctorInfo, setDoctorInfo] = useState<any>(null);
+  const [patientInfo, setPatientInfo] = useState(null);
+  const [doctorInfo, setDoctorInfo] = useState(null);
 
   // Handle image upload and create a preview
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
