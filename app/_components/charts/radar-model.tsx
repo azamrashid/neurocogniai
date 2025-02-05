@@ -34,7 +34,7 @@ export default function RadarMetricsChart() {
   return (
     <ChartContainer
       config={chartConfig}
-      className="mx-auto aspect-square max-h-[350px] bg-[#0b1e3d]"
+      className="mx-auto aspect-square max-h-[300px] bg-[#0b1e3d]"
     >
       {/* ✅ Wrapped everything inside React.Fragment */}
       <>
@@ -54,7 +54,7 @@ export default function RadarMetricsChart() {
 
         {/* ✅ Wrapped text inside a div to prevent multiple children issue */}
         <div className="flex items-center justify-center gap-2 font-medium leading-none text-center">
-          Alzheimer Model Metrics
+          Alzheimer Model Performance Metrics
         </div>
       </>
     </ChartContainer>

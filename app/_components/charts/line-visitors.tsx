@@ -50,6 +50,7 @@ export default function LineVisitorsChart() {
             <Bar dataKey="ReturningPatient" fill="var(--color-ReturningPatient)" radius={4} />
           </BarChart>
         </ChartContainer>
+        
       
   )
 }
