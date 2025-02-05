@@ -18,13 +18,31 @@ export default function MainPage() {
   const [prediction, setPrediction] = useState<string | null>(null);
   const [confidence, setConfidence] = useState<number | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
-  //const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-
   const [patientID, setPatientID] = useState<string>("");
-  const [patientInfo, setPatientInfo] = useState(null);
-  const [doctorInfo, setDoctorInfo] = useState(null);
+
+  interface DoctorInfo {
+    doctorID: number; // or number, depending on your data
+    doctor_Name?: string;
+    doctor_Specialisation?: string;
+  }
+
+  interface PatientInfo {
+    patientName: string;
+    patientAge: number;
+    patient_Decease: string;
+    checkup_Date: string; // Store as string (ISO format), convert when needed
+    doctorID: number; // ✅ Ensure doctorID is included
+  }
+
+  const [patientInfo, setPatientInfo] = useState<PatientInfo | null>(null);
+  const [doctorInfo, setDoctorInfo] = useState<DoctorInfo | null>(null);
+
+  
+  const formattedDate = patientInfo?.checkup_Date
+  ? new Date(patientInfo.checkup_Date).toLocaleDateString()
+  : "N/A";
 
   // Handle image upload and create a preview
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +67,7 @@ export default function MainPage() {
       // Fetch patient info
       const patientResponse = await axios.get(`http://localhost:8000/patients/${patientID}`);
       setPatientInfo(patientResponse.data);
+      
 
       // Extract doctorID from patient info and fetch doctor info
       const doctorID = patientResponse.data.doctorID;
@@ -103,7 +122,7 @@ export default function MainPage() {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("patientID", patientID); // Dynamic patient ID
-    formData.append("doctorID", doctorInfo.doctorID); // Hardcoded doctor ID
+    formData.append("doctorID", doctorInfo.doctorID.toString()); // Hardcoded doctor ID
     formData.append("api_key", "cfb54e3cf640e7babb25c423027f0afe"); // API key for authentication
 
     try {
@@ -145,7 +164,7 @@ export default function MainPage() {
       </Link>
     </li>
     <li>
-      <Link href="http://localhost:8501/" className="hover:underline hover:bg-blue-500 px-2 py-1 rounded transition duration-300">
+      <Link href="http://ncai-assistant.streamlit.app/" className="hover:underline hover:bg-blue-500 px-2 py-1 rounded transition duration-300">
         Neuro Analyzer
       </Link>
     </li>
@@ -183,18 +202,18 @@ export default function MainPage() {
         {/* Display Patient Info */}
         {patientInfo && (
           <div className="p-4 bg-[#0b1e3d] border border-sky-700 rounded">
-            <h3 className="font-semibold mb-2 text-center">Patient Information</h3>
+            <h3 className="font-semibold mb-2 text-left">Patient Information</h3>
             <p><strong>Name:</strong> {patientInfo.patientName}</p>
             <p><strong>Age:</strong> {patientInfo.patientAge}</p>
             <p><strong>Disease:</strong> {patientInfo.patient_Decease}</p>
-            <p><strong>Checkup Date:</strong> {new Date(patientInfo.checkup_Date).toLocaleDateString()}</p>
+            <p><strong>Checkup Date:</strong> {formattedDate}</p>
           </div>
         )}
 
         {/* Display Doctor Info */}
         {doctorInfo && (
           <div className="p-4 rounded mt-4  bg-[#0b1e3d] border border-sky-700">
-            <h3 className="font-semibold mb-2 text-center">Doctor Information</h3>
+            <h3 className="font-semibold mb-2 text-left">Doctor Information</h3>
             <p><strong>Name:</strong> {doctorInfo.doctor_Name}</p>
             <p><strong>Specialisation:</strong> {doctorInfo.doctor_Specialisation}</p>
           </div>
@@ -209,8 +228,8 @@ export default function MainPage() {
                 src="/brain.jpg"
                 alt="Brain scan images"
                 className="w-full"
-                width="200"
-                height="200"
+                width={200}
+                height={200}
               />
             </div>
           </div>
@@ -267,8 +286,8 @@ export default function MainPage() {
         src="/brain-model.gif"
         alt="Hero_image"
         className="max-h-full mx-auto"
-        width="400"
-        height="400"
+        width={400}
+        height={400}
         unoptimized
       />
     )}
