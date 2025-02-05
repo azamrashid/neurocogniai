@@ -301,7 +301,7 @@ export default function MainPage() {
                 <div className='font-serif'>
                   <p>Current Activity: Normal</p>
                   <p>Diagnosis: <strong> {prediction} </strong></p>
-                  <p>Accuracy: <strong> {(confidence * 100).toFixed(2)}% </strong></p>
+                  <p>Accuracy: <strong>{((confidence ?? 0) * 100).toFixed(2)}% </strong></p>
                   
                 </div>
                 <div className="flex flex-col space-y-2">
