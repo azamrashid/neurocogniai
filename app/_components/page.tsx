@@ -164,8 +164,7 @@ export default function MainPage() {
       </Link>
     </li>
     <li>
-      <Link href="http://ncai-assistant.streamlit.app/" className="hover:underline hover:bg-blue-500 px-2 py-1 rounded transition duration-300" target="_blank" 
-                  rel="noopener noreferrer">
+      <Link href="http://ncai-assistant.streamlit.app/" className="hover:underline hover:bg-blue-500 px-2 py-1 rounded transition duration-300" target="_blank">              
         Neuro Analyzer
       </Link>
     </li>
