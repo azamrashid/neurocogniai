@@ -153,7 +153,7 @@ export default function MainPage() {
 
       {/* Center: Logo */}
       <div className="absolute left-1/2 transform -translate-x-1/2">
-        <Image src="/logo.png" alt="NeuroCongniAI Header" width={300} height={130} />
+        <Image src="/Logo.png" alt="NeuroCongniAI Header" width={300} height={130} />
       </div>
       {/* Right: Navigation Links */}
 <nav>
