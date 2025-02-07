@@ -65,14 +65,14 @@ export default function MainPage() {
 
     try {
       // Fetch patient info
-      const patientResponse = await axios.get(`http://localhost:8000/patients/${patientID}`);
+      const patientResponse = await axios.get(`https://shepherd-actual-heavily.ngrok-free.app/patients/${patientID}`);
       setPatientInfo(patientResponse.data);
       
 
       // Extract doctorID from patient info and fetch doctor info
       const doctorID = patientResponse.data.doctorID;
       if (doctorID) {
-        const doctorResponse = await axios.get(`http://localhost:8000/doctors/${doctorID}`);
+        const doctorResponse = await axios.get(`https://shepherd-actual-heavily.ngrok-free.app/doctors/${doctorID}`);
         setDoctorInfo(doctorResponse.data);
       } else {
         setDoctorInfo(null);
@@ -126,7 +126,7 @@ export default function MainPage() {
     formData.append("api_key", "cfb54e3cf640e7babb25c423027f0afe"); // API key for authentication
 
     try {
-      const response = await axios.post("http://localhost:8000/predict/", formData, {
+      const response = await axios.post("https://shepherd-actual-heavily.ngrok-free.app/predict/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setPrediction(response.data.result);
