@@ -67,12 +67,12 @@ export default function MainPage() {
       // Fetch patient info
       const patientResponse = await axios.get(
         `http://116.58.21.135:5001/patients/${patientID}`, 
-        {
+        /* {
           headers: {
             //"ngrok-skip-browser-warning": "true",
             "Content-Type": "application/json",
           },
-        }
+        } */
       );
       setPatientInfo(patientResponse.data);
       
@@ -82,12 +82,12 @@ export default function MainPage() {
       if (doctorID) {
         const doctorResponse = await axios.get(
           `http://116.58.21.135:5001/doctors/${doctorID}`, 
-          {
+          /*{
             headers: {
             //  "ngrok-skip-browser-warning": "true",
               "Content-Type": "application/json",
             },
-          }
+          } */
         );
        
         setDoctorInfo(doctorResponse.data);
