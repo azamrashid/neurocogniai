@@ -66,11 +66,12 @@ export default function MainPage() {
     try {
       // Fetch patient info
       const patientResponse = await axios.get(
-        `https://shepherd-actual-heavily.ngrok-free.app/patients/${patientID}`, 
+        `http://116.58.21.135:5001/patients/${patientID}`, 
         {
           headers: {
-            "ngrok-skip-browser-warning": "true"
-          }
+            //"ngrok-skip-browser-warning": "true",
+            "Content-Type": "application/json",
+          },
         }
       );
       setPatientInfo(patientResponse.data);
@@ -80,11 +81,12 @@ export default function MainPage() {
       const doctorID = patientResponse.data.doctorID;
       if (doctorID) {
         const doctorResponse = await axios.get(
-          `https://shepherd-actual-heavily.ngrok-free.app/doctors/${doctorID}`, 
+          `http://116.58.21.135:5001/doctors/${doctorID}`, 
           {
             headers: {
-              "ngrok-skip-browser-warning": "true"
-            }
+            //  "ngrok-skip-browser-warning": "true",
+              "Content-Type": "application/json",
+            },
           }
         );
        
@@ -141,7 +143,7 @@ export default function MainPage() {
     formData.append("api_key", "cfb54e3cf640e7babb25c423027f0afe"); // API key for authentication
 
     try {
-      const response = await axios.post("https://shepherd-actual-heavily.ngrok-free.app/predict/", formData, {
+      const response = await axios.post("http://116.58.21.135:5001/predict/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setPrediction(response.data.result);
