@@ -66,7 +66,7 @@ export default function MainPage() {
     try {
       // Fetch patient info
       const patientResponse = await axios.get(
-        `http://116.58.21.135:5001/patients/${patientID}`, 
+        `https://marking.biselahore.com:5001/patients/${patientID}`, 
         /* {
           headers: {
             //"ngrok-skip-browser-warning": "true",
@@ -81,7 +81,7 @@ export default function MainPage() {
       const doctorID = patientResponse.data.doctorID;
       if (doctorID) {
         const doctorResponse = await axios.get(
-          `http://116.58.21.135:5001/doctors/${doctorID}`, 
+          `https://marking.biselahore.com:5001/doctors/${doctorID}`, 
           /*{
             headers: {
             //  "ngrok-skip-browser-warning": "true",
@@ -143,7 +143,7 @@ export default function MainPage() {
     formData.append("api_key", "cfb54e3cf640e7babb25c423027f0afe"); // API key for authentication
 
     try {
-      const response = await axios.post("http://116.58.21.135:5001/predict/", formData, {
+      const response = await axios.post("https://marking.biselahore.com:5001/predict/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setPrediction(response.data.result);
